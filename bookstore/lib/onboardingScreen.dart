@@ -1,3 +1,4 @@
+import 'package:bookstore/search.dart';
 import 'package:bookstore/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -27,7 +28,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       height: 8.0,
       width: isActive ? 24.0 : 16.0,
       decoration: BoxDecoration(
-        color: isActive ? Colors.white : Color(0xFF7B51D3),
+        color: isActive ? Colors.white : Colors.blue,
         borderRadius: BorderRadius.all(Radius.circular(12)),
       ),
     );
@@ -45,10 +46,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               end: Alignment.bottomCenter,
               stops: [0.1, 0.4, 0.7, 0.9],
               colors: [
-                Color(0xFF3594DD),
-                Color(0xFF4563DB),
-                Color(0xFF5036D5),
-                Color(0xFF5B16D0),
+                Color(0xFF00a8FF),
+                Color(0xFF00a8FF),
+                Color(0xFF00a8FF),
+                Color(0xFF00a8FF),
               ],
             ),
           ),
@@ -76,7 +77,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                             Center(
                               child: Image(
                                 image: AssetImage(
-                                  'assets/images/undraw_book_lover_mkck-removebg-preview.png',
+                                  'assets/images/undraw_book_lover_mkck__1_-removebg-preview.png',
                                 ),
                                 height: 300.0,
                                 width: 500.0,
@@ -103,7 +104,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                             Center(
                               child: Image(
                                 image: AssetImage(
-                                  'assets/images/undraw_Mobile_app_p3ts-removebg-preview.png',
+                                  'assets/images/undraw_Mobile_app_p3ts__1_-removebg-preview.png',
                                 ),
                                 height: 300.0,
                                 width: 500.0,
@@ -200,19 +201,21 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               height: 80.0,
               width: double.infinity,
               color: Colors.white,
-              child: GestureDetector(
-                onTap: () => print('Get started'),
-                child: Center(
-                  child: Padding(
-                    padding: EdgeInsets.only(bottom: 30.0),
-                    child: Text(
-                      'Get started',
-                      style: TextStyle(
-                        color: Color(0xFF5B16D0),
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+              child: TextButton(
+                onPressed: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) => Search()));
+                },
+                child: Padding(
+                  padding: EdgeInsets.all(10.0),
+                  child: Column(
+                    children: <Widget>[
+                      Text(
+                        'Get Started',
+                        style:
+                            TextStyle(fontSize: 25.0, color: Colors.blue[600]),
+                      )
+                    ],
                   ),
                 ),
               ),
